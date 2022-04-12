@@ -14,9 +14,13 @@ use App\Http\Controllers\PostController;
 |
 */
 
-Route::get('/',function() {
-    return view('index');
-});
+Route::get('/', [PostController::class, 'index'])->name('post.index');
+Route::get('/posts/{post:slug}', [PostController::class, 'show'])->name('post.show');
+
+
+// Route::get('/',function() {
+//     return view('index');
+// });
 
 Route::get('/dashboard', function () {
     return view('dashboard');

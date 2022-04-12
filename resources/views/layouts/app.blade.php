@@ -15,6 +15,12 @@
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
+
+        {{-- livewire styles --}}
+        @livewireStyles
+
+        {{-- add apline js with livewire --}}
+        <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     </head>
     <body class="font-sans bg-gray-background text-gray-900 text-sm">
         <header class="flex items-center justify-between px-8 py-4">
@@ -85,5 +91,7 @@
                 </div>
             </div>
         </main>
+
+        @livewireScripts
     </body>
 </html>
