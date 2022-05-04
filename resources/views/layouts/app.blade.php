@@ -69,9 +69,27 @@
         </header>
 
         <main class="container mx-auto max-w-custom flex">
-            <div class="w-70 mr-5">
-                Add Post from goes here.
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae reprehenderit ut architecto facere minus quaerat consequuntur voluptate nulla culpa blanditiis corporis vitae enim quasi accusamus sint, vero voluptas ipsa rem.
+            <div class="w-70 mr-5 mx-auto">
+                <div
+                    class="bg-white md:sticky md:top-8 border-2 border-blue rounded-xl mt-16"
+                    style="border-image-source: linear-gradient(to bottom, rgba(50, 138, 241, 0.22), rgba(99, 123, 255, 0));
+                           border-image-slice: 1;
+                           background-image: linear-gradient(to bottom, #ffffff, #ffffff), linear-gradient(to bottom, rgba(50, 138, 241, 0.22), rgba(99, 123, 255, 0));
+                           background-origin: border-box;
+                           background-clip: content-box, border-box;" >
+                    <div class="text-center px-6 py-2 pt-6">
+                        <h3 class="font-semibold text-base">Add an Post</h3>
+                        <p class="text-xs mt-4">
+                            @auth
+                                Let us know what you would like and we'll take a look over!
+                            @else
+                                Please login to create an idea.
+                            @endauth
+                        </p>
+                    </div>
+
+                    <livewire:create-post />
+                </div>
             </div>
             <div class="w-175">
                 <nav class="flex items-center justify-between text-xs">
@@ -82,7 +100,7 @@
                     </ul>
                     <ul class="flex uppercase font-semibold border-b-4 pb-3 space-x-10">
                         <li><a href="#" class="text-gray-400 transition duration-150 ease-in border-b-4 pb-3 hover:border-blue">Documents(18)</a></li>
-                        <li><a href="#" class="text-gray-400 transition duration-150 ease-in border-b-4 pb-3 hover:border-blue">Links(9)</a></li>              
+                        <li><a href="#" class="text-gray-400 transition duration-150 ease-in border-b-4 pb-3 hover:border-blue">Links(9)</a></li>
                     </ul>
                 </nav>
 
