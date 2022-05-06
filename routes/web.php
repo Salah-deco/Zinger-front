@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
-
+use App\Http\Controllers\AdminHomeController;
+use App\Http\Controllers\AdminCommentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,10 +19,13 @@ Route::get('/', [PostController::class, 'index'])->name('post.index');
 Route::get('/posts/{post:slug}', [PostController::class, 'show'])->name('post.show');
 
 
-// Route::get('/',function() {
-//     return view('index');
-// });
+ Route::get('/',function() {
+     return view('index');
+ });
 
+ 
+ Route::resource("Admin", AdminHomeController::class);
+ Route::resource("AdminC", AdminCommentController::class);
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
