@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,7 @@ use App\Http\Controllers\PostController;
 Route::get('/', [PostController::class, 'index'])->name('post.index');
 Route::get('/posts/{post:slug}', [PostController::class, 'show'])->name('post.show');
 
+Route::resource("profile", ProfileController::class);
 
 // Route::get('/',function() {
 //     return view('index');

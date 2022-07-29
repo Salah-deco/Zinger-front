@@ -28,7 +28,7 @@ class CreatePost extends Component
         // userId, type, body, url
         $post = [
                 //"userId" => auth()->get(),
-                "userId" => '624cac94f698c55e89e0b5d1',
+                "userId" => session("userId") ?? '624cac94f698c55e89e0b5d1',
                 "type" => ($this->media == null) ? 'text' : 'media',
                 "body" => ($this->text == null) ? null : $this->text,
                 "url" => ($this->media == null) ? null : $this->media

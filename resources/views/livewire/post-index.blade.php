@@ -1,4 +1,5 @@
 <div>
+{{--    {{ var_dump(session("first_name"))  }}--}}
     <div class="post-container bg-white rounded-xl flex hover:shadow-card transition duration-150 easy-in cursor-pointer">
         <div class="border-r border-gray-100 px-5 py-8">
             <div class="text-center">
@@ -7,6 +8,7 @@
             </div>
 
             <div class="mt-8">
+                <input type="hidden" value="{{$hasLiked}}">
                 @if ($hasLiked)
                     <button wire:click.prevent="like" class="w-20 bg-blue text-white border border-blue hover:bg-blue-hover font-bold text-xxs uppercase rounded-xl transition duration-150 ease-in px-4 py-3">Liked</button>
                 @else
@@ -17,9 +19,13 @@
         </div>
 
         <div class="flex px-2 py-6">
-            <a href="#" class="flex-none">
+            <a href="/profile" class="flex-none">
 {{--                <img src="{{ $post->user->getAvatar() }}" alt="avatar" class="w-14 h-14 rounded-xl">--}}
-                <img src="https://s3.amazonaws.com/laracasts/images/forum/avatars/default-avatar-{{rand(0, 25)}}.png" alt="avatar" class="w-14 h-14 rounded-xl">
+                @if(session("userId") != $post->userId )
+                    <img src="https://s3.amazonaws.com/laracasts/images/forum/avatars/default-avatar-{{rand(0, 25)}}.png" alt="avatar" class="w-14 h-14 rounded-xl">
+                @else
+                    <img src={{ "/img/users/" . session("image") }} alt="avatar" class="w-14 h-14 rounded-xl">
+                @endif
             </a>
             <div class="mx-4">
                 <h4 class="text-xl font-semibold">
@@ -53,7 +59,7 @@
 
                 <div class="flex items-center justify-between mt-6">
                     <div class="flex items-center text-gray-400 text-xs font-semibold space-x-2">
-                        <div>{{ $post->createdAt->diffForHumans() }}</div>
+                        <div>{{ $post->createdAt }}</div>
                         <div>&bull;</div>
                         <div wire:ignore class="text-gray-900">{{ $post->numberComments }} comments</div>
                     </div>

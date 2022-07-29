@@ -3,7 +3,7 @@
 {{--        <livewire:post-index :post="$posts[0]" />--}}
         @forelse ($posts as $post)
 
-            <livewire:post-index :post="$post" />
+            <livewire:post-index :key="$post->postId" :postId="$post->postId" :post="$post" />
 {{--                :key = "$post->id",--}}
         @empty
             <div class="mx-auto w-70 mt-12">

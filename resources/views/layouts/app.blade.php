@@ -43,7 +43,9 @@
             <div class="flex items-center">
                 @if (Route::has('login'))
                     <div class="px-6 py-4">
-                        @auth
+{{--                        @auth--}}
+                        @if(session("S_ID") != null)
+
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
@@ -59,10 +61,12 @@
                             @if (Route::has('register'))
                                 <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
                             @endif
-                        @endauth
+
+                        @endif
+{{--                        @endauth--}}
                     </div>
-                    <a href="#">
-                        <img src="http://gravatar.com/avatar/0000000?d=mp" alt="avatar" class="w-10 h-10 rounded-full">
+                    <a href="/profile">
+                        <img src= {{ "./img/users/" . session("image") ?? "http://gravatar.com/avatar/0000000?d=mp" }} alt="avatar" class="w-10 h-10 rounded-full">
                     </a>
                 @endif
             </div>

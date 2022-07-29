@@ -1,5 +1,6 @@
 <div>
-    @auth
+{{--    @auth--}}
+    @if(session("S_ID") != null)
         <form wire:submit.prevent="createPost" action="#" method="POST" class="space-y-4 px-4 py-6">
             <div>
                 <textarea wire:model.defer="text" name="text" id="post" cols="30" rows="4" class="w-full bg-gray-100 rounded-xl border-none placeholder-gray-900 text-sm px-4 py-2" placeholder="Hey, what's new?"></textarea>
@@ -42,5 +43,6 @@
                 Sign Up
             </a>
         </div>
-    @endauth
+    @endif
+{{--    @endauth--}}
 </div>

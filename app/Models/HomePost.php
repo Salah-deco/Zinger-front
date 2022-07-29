@@ -38,11 +38,13 @@ class HomePost extends Model
             $this->body = $post["body"];
             $this->type = $post["type"];
             $this->url = $post["url"];
-            $this->createdAt = Carbon::parse($post["createdAt"]);
+            $this->createdAt = Carbon::parse($post["createdAt"])->diffForHumans();
             $this->numberLikes = $post["number_likes"];
             $this->numberComments = $post["number_comments"];
         }
     }
+
+
 
 }
 

@@ -27,7 +27,13 @@ class PostsIndex extends Component
 
     public function mount()
     {
-        $response = Http::get("http://localhost:8080/home?size=".$this->size."&page=". $this->number);
+        $url = "http://localhost:8080/home?size=".$this->size."&page=". $this->number;
+    //    $response = Http::get($url);
+
+//        var_dump(session("key"));
+
+        //$response = Http::get($url . "&S_ID=". session("S_ID")[0]);
+        $response = Http::get($url);
         $this->homePage = $response->json();
         $resPosts = $this->homePage["homePost"];
         // print_r($page);
